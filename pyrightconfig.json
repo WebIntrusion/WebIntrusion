@@ -1,0 +1,16 @@
+// Please install Pylance extension and disable other VSCODE linter (ex search for Pylint enabled and disable)
+// Config for Pylance extension. Check https://github.com/microsoft/pyright/blob/master/docs/configuration.md for more info
+{
+    "exclude": [
+        "**/node_modules",
+        "**/__pycache__"
+    ],
+    "executionEnvironments": [
+        {
+            "root": "app"
+        },
+        {
+            "root": "dirb-services"
+        },
+    ]
+}
