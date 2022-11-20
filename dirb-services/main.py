@@ -25,7 +25,6 @@ def enqueue_output(stdout, pid):
     global running_procs
     for line in iter(stdout.readline, b''):
         running_procs[pid].stdout += line.decode()
-    del running_procs[pid]
     stdout.close()
 
 
