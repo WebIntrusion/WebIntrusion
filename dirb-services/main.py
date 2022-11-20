@@ -4,9 +4,11 @@ from threading import Thread
 from typing import List, Dict
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from const import WORDLISTS_BASE_URL
+
 
 
 class DirbProcess(BaseModel):
@@ -20,6 +22,18 @@ running_procs: Dict[int, DirbProcess] = {}
 
 app = FastAPI()
 
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def enqueue_output(stdout, pid):
     global running_procs
