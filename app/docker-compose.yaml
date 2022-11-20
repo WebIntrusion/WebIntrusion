@@ -1,0 +1,15 @@
+version: '3'
+
+volumes:
+  node_modules:
+
+# Define services
+services:
+  frontend_app:
+    image: webintrusion/local/app:latest
+    container_name: frontend_app
+    command: npm run start
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${APP_DIR:-.}:/app

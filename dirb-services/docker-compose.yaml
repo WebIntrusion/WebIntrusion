@@ -1,0 +1,11 @@
+version: '3'
+
+# Define services
+services:
+  dirb_services:
+    image: webintrusion/local/dirb-services:latest
+    container_name: dirb_services
+    ports:
+      - "9010:9010"
+    volumes:
+      - ${DIRB_SERVICES_DIR:-.}:/app
